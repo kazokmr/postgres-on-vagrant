@@ -6,17 +6,5 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "postgresql"
   config.vm.network "private_network", ip: "192.168.33.11"
   config.vm.synced_folder ".","/host_sync",:mount_options => ['dmode=775','fmode=664']
-  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", :path => "scripts/provision.sh"
 end
-
-$script = <<SCRIPT
-  yum -y install epel-release
-  yum -y install vim
-  # install postgreSql Client
-  yum -y install postgresql
-  yum -y install docker
-  # start docker and autoEnabe
-  systemctl start docker.service
-  systemctl enable docker.service
-  docker run --name postgresql -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres --restart=always -d postgres:9.6
-SCRIPT
