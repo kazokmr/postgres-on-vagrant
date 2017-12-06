@@ -5,14 +5,13 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.hostname = "postgresql"
   config.vm.network "private_network", ip: "192.168.33.11"
-  config.vm.synced_folder ".","/home/vagrant/sync",disabled: true
+  config.vm.synced_folder ".","/host_sync",:mount_options => ['dmode=775','fmode=664']
   config.vm.provision "shell", inline: $script
 end
 
 $script = <<SCRIPT
   yum -y install epel-release
   yum -y install vim
-  yum -y install git
   # install postgreSql Client
   yum -y install postgresql
   yum -y install docker
