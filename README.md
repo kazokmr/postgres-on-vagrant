@@ -1,4 +1,4 @@
-# PostgreSQLがインストールされてVagrantfile
+# PostgreSQLがインストールされたVagrant
 
 ### OSはcentos7
 ### PostgreSQLは9.6
