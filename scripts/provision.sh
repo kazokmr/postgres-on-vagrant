@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+timedatectl set-timezone Asia/Tokyo
+
 yum -y install epel-release
 yum -y install ansible
 yum -y install vim
