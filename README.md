@@ -1,13 +1,22 @@
-# PostgreSQLがインストールされたVagrant
+# PostgreSQLを起動するVagrant
 
-### OSはcentos7
-### PostgreSQLは9.6
-### DockerをインストールしDockerコンテナでPostgreSQLを起動する
-### Vagrantのプロビジョニングで以下を実行しています
-- Vimのインストール
-- Gitのインストール
-- PostgreSQLClientのインストール
-- Dockerのインストール
-- Dockerのサービス起動と自動起動を有効にする
-- PostgreSQLの起動
-細かな設定はVagrantfileを参照してください
+## Summary
+- GuestOSにインストールしたDockerコンテナでPostgreSQLをデプロイする
+- GuestOSのセットアップはAnsible-playbookから行う
+
+## GuestOSにSetUpするもの
+- CentOS
+- ansible
+- pip
+- Docker-ce
+- Docker-py
+- PostgreSQL
+
+ansibleはVagrantでインストールし、その他はansible-playbookでインストールする
+
+## 前提
+- HostOSにVirtualBoxとVagrantをインストールする
+- ansible-playbookはHostOSで管理し、GuestOSから共有参照して実行する
+
+### DBへの接続方法
+`psql -h (VagrantのIP) -U (DBUSERNAME) -d (DBNAME)`
