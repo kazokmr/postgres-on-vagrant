@@ -1,0 +1,9 @@
+---
+# file: dbservers.yml
+- hosts: dbservers
+  connection: local
+  become: yes
+  roles:
+    - common
+    - postgresql
+
