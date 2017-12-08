@@ -1,0 +1,5 @@
+---
+# tasks file for postgresql-client
+- name: install postgresql-client
+  yum: name=postgresql state=installed
+  
