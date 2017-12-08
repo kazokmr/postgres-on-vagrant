@@ -1,0 +1,9 @@
+container_name: postgresql
+container_image: postgres:9.6
+container_ports:
+  - 5432:5432
+container_env:
+  POSTGRES_USER="postgres"
+  POSTGRES_PASSWORD="postgres"
+  POSTGRES_DB="postgres"
+
