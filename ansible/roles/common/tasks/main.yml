@@ -2,6 +2,9 @@
 - name: install epel
   yum: name=epel-release state=installed
 
+- name: install pip
+  yum: name=python-pip state=installed
+
 - name: disable selinux
   selinux: state={{ selinux_mode }}
 
