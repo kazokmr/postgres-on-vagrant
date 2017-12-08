@@ -2,13 +2,9 @@
 # Deploy Docker Container For PostgreSQL
 - name: Deploy Docker Container PostgreSQL
   docker_container:
-    name: postgresql
-    image: postgres:9.6
+    name: "{{ container_name }}"
+    image: "{{ container_image }}"
     restart_policy: always
     state: started
-    ports:
-      - "5432:5432"
-    env:
-      POSTGRES_USER="postgres"
-      POSTGRES_PASSWORD="postgres"
-      POSTGRES_DB="postgres"
+    ports: "{{ container_ports }}"
+    env: "{{ container_env }}"
